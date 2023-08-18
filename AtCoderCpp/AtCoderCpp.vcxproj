@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="2.0.5ARC031_B.cpp" />
     <ClCompile Include="2.0.5_1.cpp" />
     <ClCompile Include="310_A.cpp" />
     <ClCompile Include="310_B.cpp" />

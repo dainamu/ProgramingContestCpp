@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int main() {
+int main_314B() {
 
 	int n;
 	cin >> n;
