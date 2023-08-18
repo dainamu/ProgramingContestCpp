@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ABC191">
+      <UniqueIdentifier>{b40c3c10-dd4a-4c44-8e94-4e48fc97a2a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ABC181">
+      <UniqueIdentifier>{5e71c16e-1dd0-4304-aceb-6caad0a0908f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AGP4b">
+      <UniqueIdentifier>{c487cbe9-c9bb-484f-8b2f-6449149ca279}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ABC305">
+      <UniqueIdentifier>{9c6108b9-cf75-44b0-8a65-ad07565015a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ABC310">
+      <UniqueIdentifier>{e8d85d6a-dc8f-43e6-9a64-df89b90c2e7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ABC311">
+      <UniqueIdentifier>{68be9641-6b5b-4c4a-b531-ff484c5a5cab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ABC312">
+      <UniqueIdentifier>{fc9ee27c-5bbb-43b3-9511-9be1fbac4e30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ABC313">
+      <UniqueIdentifier>{c8efe74b-ab41-4158-b646-ff293e31f4dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sampleproj">
+      <UniqueIdentifier>{fff0c64a-fdb3-4886-9456-1914895edfa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NewFilter2">
+      <UniqueIdentifier>{d162d4b9-1eeb-43c0-b264-fc9eb1af6885}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ABC314">
+      <UniqueIdentifier>{3cac16f2-1eba-4e2b-b653-e16b614a2c97}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ABC191\A.cpp">
+      <Filter>ABC191</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC191\A_181.cpp">
+      <Filter>ABC181</Filter>
+    </ClCompile>
+    <ClCompile Include="ABC191\2.0.5.cpp">
+      <Filter>AGP4b</Filter>
+    </ClCompile>
+    <ClCompile Include="2.0.5_1.cpp">
+      <Filter>AGP4b</Filter>
+    </ClCompile>
+    <ClCompile Include="A_305.cpp">
+      <Filter>ABC305</Filter>
+    </ClCompile>
+    <ClCompile Include="310_A.cpp">
+      <Filter>ABC310</Filter>
+    </ClCompile>
+    <ClCompile Include="310_B.cpp">
+      <Filter>ABC310</Filter>
+    </ClCompile>
+    <ClCompile Include="310_Ccpp.cpp">
+      <Filter>ABC310</Filter>
+    </ClCompile>
+    <ClCompile Include="310_Bans.cpp">
+      <Filter>ABC310</Filter>
+    </ClCompile>
+    <ClCompile Include="310_Bans2.cpp">
+      <Filter>ABC310</Filter>
+    </ClCompile>
+    <ClCompile Include="311_A.cpp">
+      <Filter>ABC311</Filter>
+    </ClCompile>
+    <ClCompile Include="311_B.cpp">
+      <Filter>ABC311</Filter>
+    </ClCompile>
+    <ClCompile Include="311_C.cpp">
+      <Filter>ABC311</Filter>
+    </ClCompile>
+    <ClCompile Include="312_A.cpp">
+      <Filter>ABC312</Filter>
+    </ClCompile>
+    <ClCompile Include="312_B.cpp">
+      <Filter>ABC312</Filter>
+    </ClCompile>
+    <ClCompile Include="312_C.cpp">
+      <Filter>ABC312</Filter>
+    </ClCompile>
+    <ClCompile Include="313_A.cpp">
+      <Filter>ABC313</Filter>
+    </ClCompile>
+    <ClCompile Include="313_B.cpp">
+      <Filter>ABC313</Filter>
+    </ClCompile>
+    <ClCompile Include="313_C.cpp">
+      <Filter>ABC313</Filter>
+    </ClCompile>
+    <ClCompile Include="sample.cpp">
+      <Filter>sampleproj</Filter>
+    </ClCompile>
+    <ClCompile Include="314_A.cpp">
+      <Filter>ABC314</Filter>
+    </ClCompile>
+    <ClCompile Include="314_B.cpp">
+      <Filter>ABC314</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
