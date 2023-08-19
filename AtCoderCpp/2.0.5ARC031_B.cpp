@@ -6,9 +6,10 @@
 
 using namespace std;
 
-void isIsland(vector<string> a, vector<vector<bool>> &isChecked, int x, int y) {
+void fill_island(vector<string> borad, vector<vector<bool>> &isChecked, int x, int y) {
 
-	
+	// 場外の場合はリターン
+	if (x < 0 || x > 9 || y < 0 || y>9) return;
 	// チェック済みの場合、リターン
 	if (isChecked.at(x).at(y)) {
 		return;
@@ -17,86 +18,86 @@ void isIsland(vector<string> a, vector<vector<bool>> &isChecked, int x, int y) {
 	// 現在のマスをチェック済みにする
 	isChecked.at(x).at(y) = true;
 
-	// 現在のマスの状態
-	char c =  a.at(x).at(y);
-
-	if (c == '-' || c == 'x') {
-		// 陸地以外の場合
+	if (borad[x][y] == 'x') {
+		// 海の場合
 		return;
 	}
 
 
 
 	// 上下左右に対して呼び出す
-	isIsland(a, isChecked, x + 1, y);
-	isIsland(a, isChecked, x - 1, y);
-	isIsland(a, isChecked, x, y+1);
-	isIsland(a, isChecked, x, y-1);
+	fill_island(borad, isChecked, x + 1, y);
+	fill_island(borad, isChecked, x - 1, y);
+	fill_island(borad, isChecked, x, y+1);
+	fill_island(borad, isChecked, x, y-1);
 
-	
+}
 
+bool check_connected(vector<string> board) {
+
+	// チェック用配列
+	vector<vector<bool>> isChecked(10, vector<bool>(10, false));
+
+	// 陸地ます1つ探す
+	int x, y;
+	req(i, 10) {
+		req(j, 10) {
+			if (board[i][j] == 'o') {
+				x = i;
+				y = j;
+				break;
+			}
+		}
+	}
+
+	// 再帰関数でisCheckedを完成させる
+	fill_island(board, isChecked, x, y);
+
+	bool ans = true;
+	req(i, 10) {
+		req(j, 10) {
+			if (board[i][j] == 'o') {
+				// 陸地でチェックされていなければNG
+				if (isChecked[i][j] == false) {
+					ans = false;
+				}
+			}
+		}
+	}
+
+	return ans;
 
 }
 
 int main() {
 
-	vector<string> a(12);
+	vector<string> board(10);
 
-	a.at(0) = "------------";
-	a.at(11) = "------------";
-	for(int i = 1; i<11; i++){
+	req(i, 10) cin >> board[i];
 
-		string tmp;
-		cin >> tmp;
-		tmp = '-' + tmp + '-';
-
-		a.at(i) = tmp;
-	}
-
-	// まずすべての陸地ますがつながっているかを調べる関数
-	// すべての陸地がつながっている→あるひとつの陸地ますから上下左右の移動を繰り返して、全ての陸地にたどりつける。
-
-
-	// 陸地マスを一つ探す
-	int x, y;
 	bool ans = true;
+
 	// 全てのマスを埋め立てる対象として1つの島になるか
-	for (int i = 1; i < 11; i++) {
-		for (int j = 1; j < 11; j++) {
-			char tmp = a.at(i).at(j);
-			a.at(i).at(j) = 'o';// 陸地にする
+	req(i, 10){
+		req(j, 10){
 
-			// 再帰関数を呼び出してisCheckedを埋める
-			// チェック用配列
-			vector<vector<bool>> isChecked(12, vector<bool>(12, false));
-			isIsland(a, isChecked, i, j);
+			if (board.at(i).at(j) == 'o') continue;
 
-			// 陸地すべてをチェックずみであれば一つのしま
+			char tmp = board.at(i).at(j); // 処理中のマスを退避
+			board.at(i).at(j) = 'o';// 陸地にする
 
-			for (int i = 1; i < 11; i++) {
-				for (int j = 1; j < 11; j++) {
-					if (a.at(i).at(j) == 'o') {
-						if (isChecked.at(i).at(j) == false) {
-							// 陸地をチェックできていない。
-							ans = false;
-						}
-					}
-				}
+			if (check_connected(board)) {
+				cout << "YES" << endl;
+				return 0;
 			}
 
-			if (ans) {
-				goto exit;
-			}
-			a.at(i).at(j) = tmp;// マスを元にもどす
+			board.at(i).at(j) = tmp;// マスを元にもどす
 
 
 		}
 
 	}
 
-
-exit:
-	cout << (ans ? "YES" : "NO") << endl;
-
+	cout << "NO" << endl;
 	return 0;
 }
