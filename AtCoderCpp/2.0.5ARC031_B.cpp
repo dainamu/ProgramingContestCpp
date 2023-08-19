@@ -33,22 +33,10 @@ void fill_island(vector<string> borad, vector<vector<bool>> &isChecked, int x, i
 
 }
 
-bool check_connected(vector<string> board) {
+bool check_connected(vector<string> board, int x, int y) {
 
 	// チェック用配列
 	vector<vector<bool>> isChecked(10, vector<bool>(10, false));
-
-	// 陸地ます1つ探す
-	int x, y;
-	req(i, 10) {
-		req(j, 10) {
-			if (board[i][j] == 'o') {
-				x = i;
-				y = j;
-				break;
-			}
-		}
-	}
 
 	// 再帰関数でisCheckedを完成させる
 	fill_island(board, isChecked, x, y);
@@ -86,7 +74,7 @@ int main() {
 			char tmp = board.at(i).at(j); // 処理中のマスを退避
 			board.at(i).at(j) = 'o';// 陸地にする
 
-			if (check_connected(board)) {
+			if (check_connected(board, i, j)) {
 				cout << "YES" << endl;
 				return 0;
 			}
