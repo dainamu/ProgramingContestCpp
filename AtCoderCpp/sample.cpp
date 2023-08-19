@@ -9,8 +9,10 @@ using ll = long long;
 
 int main_sample() {
 
-	req(i, 10) {
-		cout << i << endl;
-	}
+
+	string tmp;
+	tmp = "sample";
+	tmp = '-' + tmp + '-';
+	cout << tmp;
 	return 0;
 }
