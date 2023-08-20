@@ -57,7 +57,7 @@ bool check_connected(vector<string> board, int x, int y) {
 
 }
 
-int main() {
+int main_ARC031_B() {
 
 	vector<string> board(10);
 

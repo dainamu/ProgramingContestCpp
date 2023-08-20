@@ -9,10 +9,13 @@ using ll = long long;
 
 int main_sample() {
 
-
-	string tmp;
-	tmp = "sample";
-	tmp = '-' + tmp + '-';
-	cout << tmp;
-	return 0;
+    int N;
+    cin >> N;
+    int cnt = 0;
+    while (N > 0) {
+        cnt++;
+        N /= 2;
+    }
+    cout << cnt << endl;
+    return 0;
 }

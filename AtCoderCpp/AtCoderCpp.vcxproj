@@ -36,6 +36,10 @@
     <ClCompile Include="313_C.cpp" />
     <ClCompile Include="314_A.cpp" />
     <ClCompile Include="314_B.cpp" />
+    <ClCompile Include="315_A.cpp" />
+    <ClCompile Include="315_B.cpp" />
+    <ClCompile Include="315_C.cpp" />
+    <ClCompile Include="315_C_2.cpp" />
     <ClCompile Include="ABC191\2.0.5.cpp" />
     <ClCompile Include="ABC191\A.cpp" />
     <ClCompile Include="ABC191\A_181.cpp" />
