@@ -7,51 +7,42 @@
 using namespace std;
 
 
-// pariÇÃî‰ärä÷êî
-bool compare_by_b(pair<int, int> a, pair<int, int> b) {
-
-	if (a.second != b.second) {
-		return a.second < b.second;
-	}
-	else {
-		return a.first < b.first;
-	}
-}
-
-
 int main() {
 
 	int N;
 	cin >> N;
 
-	vector<pair<long, int>> ice(N);
+	vector<int> F(N);
+	vector<int> S(N);
 
-	req(i, N) {
-		cin >> ice.at(i).second;
-		cin >> ice.at(i).first;
-	}
+	int maxS = 0;
+	int choice = -1;
 	
-	// Ç®Ç¢ÇµÇ≥ÇÃè∏èá
-	sort(ice.begin(), ice.end());
+	req(i, N) {
 
-	pair<long, int> a1;
-	a1 = ice.at(N - 1);
+		cin >> F[i];
+		cin >> S[i];
 
-	long manzoku = 0;
-	for (int i = 0; i < N-1; i++) {
-
-		if (a1.second == ice.at(i).second) {
-			// ìØÇ∂ñ°
-			manzoku = max((a1.first + ice.at(i).first / 2), manzoku);
-		}
-		else {
-			// à·Ç§ñ°
-			manzoku = max((a1.first + ice.at(i).first), manzoku);
+		if (maxS < S[i]) {
+			maxS = S[i];
+			choice = i;
 		}
 
 	}
 
-	cout << manzoku << endl;
+	int ans = 0;
+	req(i, N) {
+
+		if (i != choice) {
+			int tmp;
+			tmp = F[i] == F[choice] ? S[i]/2 : S[i];
+
+			ans = max(ans, maxS + tmp);
+		}
+
+	}
+
+	cout << ans << endl;
 
 	return 0;
 }
