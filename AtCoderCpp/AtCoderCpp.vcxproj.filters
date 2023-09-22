@@ -49,6 +49,21 @@
     <Filter Include="ABC315">
       <UniqueIdentifier>{34440ad9-5410-4e3f-85b0-fba33eb0800d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ABC320">
+      <UniqueIdentifier>{d31da9cb-ecb2-4a36-83db-18a326d84818}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ABC_317">
+      <UniqueIdentifier>{9b9ecdbf-e460-44df-8bd1-88de473bdc6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ABC309">
+      <UniqueIdentifier>{f6693df4-9db7-4926-bcf5-3f1157fe9f62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ABC308">
+      <UniqueIdentifier>{dfd6e9e3-aaf1-4318-9eac-70b30f0dfbec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ABC303">
+      <UniqueIdentifier>{a297742a-b7ca-47a1-bf3b-51e1f86a4eca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ABC191\A.cpp">
@@ -131,6 +146,39 @@
     </ClCompile>
     <ClCompile Include="315_C_2.cpp">
       <Filter>ABC315</Filter>
+    </ClCompile>
+    <ClCompile Include="320_A.cpp">
+      <Filter>ABC320</Filter>
+    </ClCompile>
+    <ClCompile Include="320_B.cpp">
+      <Filter>ABC320</Filter>
+    </ClCompile>
+    <ClCompile Include="317_A.cpp">
+      <Filter>ABC_317</Filter>
+    </ClCompile>
+    <ClCompile Include="317_B.cpp">
+      <Filter>ABC_317</Filter>
+    </ClCompile>
+    <ClCompile Include="320_B_2.cpp">
+      <Filter>ABC320</Filter>
+    </ClCompile>
+    <ClCompile Include="320_C.cpp">
+      <Filter>ABC320</Filter>
+    </ClCompile>
+    <ClCompile Include="309_B.cpp">
+      <Filter>ソース ファイル\ABC309</Filter>
+    </ClCompile>
+    <ClCompile Include="308_B.cpp">
+      <Filter>ソース ファイル\ABC308</Filter>
+    </ClCompile>
+    <ClCompile Include="308_A.cpp">
+      <Filter>ソース ファイル\ABC308</Filter>
+    </ClCompile>
+    <ClCompile Include="309_A.cpp">
+      <Filter>ソース ファイル\ABC309</Filter>
+    </ClCompile>
+    <ClCompile Include="303_B.cpp">
+      <Filter>ソース ファイル\ABC303</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

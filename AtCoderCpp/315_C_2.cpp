@@ -7,7 +7,7 @@
 using namespace std;
 
 
-int main() {
+int main_315C_2() {
 
 	int N;
 	cin >> N;

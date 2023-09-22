@@ -9,13 +9,14 @@ using ll = long long;
 
 int main_sample() {
 
-    int N;
-    cin >> N;
-    int cnt = 0;
-    while (N > 0) {
-        cnt++;
-        N /= 2;
+    int a;
+    cin >> a;
+
+    if (a % 3) { // 0‚Ífalse
+        cout << "Hello World!" << endl;
     }
-    cout << cnt << endl;
+    else {
+        cout << "foo" << endl;
+    }
     return 0;
 }

@@ -21,6 +21,10 @@
   <ItemGroup>
     <ClCompile Include="2.0.5ARC031_B.cpp" />
     <ClCompile Include="2.0.5_1.cpp" />
+    <ClCompile Include="303_B.cpp" />
+    <ClCompile Include="308_A.cpp" />
+    <ClCompile Include="308_B.cpp" />
+    <ClCompile Include="309_A.cpp" />
     <ClCompile Include="310_A.cpp" />
     <ClCompile Include="310_B.cpp" />
     <ClCompile Include="310_Bans.cpp" />
@@ -40,11 +44,18 @@
     <ClCompile Include="315_B.cpp" />
     <ClCompile Include="315_C.cpp" />
     <ClCompile Include="315_C_2.cpp" />
+    <ClCompile Include="317_A.cpp" />
+    <ClCompile Include="317_B.cpp" />
+    <ClCompile Include="320_A.cpp" />
+    <ClCompile Include="320_B.cpp" />
+    <ClCompile Include="320_B_2.cpp" />
+    <ClCompile Include="320_C.cpp" />
     <ClCompile Include="ABC191\2.0.5.cpp" />
     <ClCompile Include="ABC191\A.cpp" />
     <ClCompile Include="ABC191\A_181.cpp" />
     <ClCompile Include="313_A.cpp" />
     <ClCompile Include="A_305.cpp" />
+    <ClCompile Include="309_B.cpp" />
     <ClCompile Include="sample.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -133,6 +144,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
