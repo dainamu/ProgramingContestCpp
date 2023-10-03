@@ -5,7 +5,6 @@
 #include <stdio.h>
 #include <string>
 #include <cmath>
-#include <set>
 #include <unordered_set>
 #define rep(i, n) for(int i=0; i<(n); i++)
 
@@ -18,8 +17,11 @@ int dj[] = { 0,1,0,-1,1,1,-1,-1,0 };
 
 signed main() {
 
-	
-
+	int n;
+	string s;
+	cin >> n >> s;
+	s = " " + s;
+	cout << (int)s.find("ABC") << '\n';
 	return 0;
 
 }
