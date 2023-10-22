@@ -23,7 +23,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main\main.cpp" />
-    <ClCompile Include="sample_4.cpp" />
+    <ClCompile Include="sample\sample.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -6,17 +6,12 @@
 
 using namespace std;
 using ll = long long;
-
+namespace sample {
+    int di[] = { -1,0,1,0,-1,1,1,-1,0 }; // ª ¨ « © ‰Eã ‰E‰º ¶‰º ¶ã  ’†S
+    int dj[] = { 0,1,0,-1,1,1,-1,-1,0 };
+}
 int main_sample() {
 
-    int a;
-    cin >> a;
-
-    if (a % 3) { // 0‚Ífalse
-        cout << "Hello World!" << endl;
-    }
-    else {
-        cout << "foo" << endl;
-    }
+    cout << sizeof(sample::di) << endl;
     return 0;
 }

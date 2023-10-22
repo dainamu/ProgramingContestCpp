@@ -28,50 +28,54 @@ struct Edge {
 
 };
 
-int solve(vector<vector<Edge>> g, int n) {
 
-	int ans = 0;
-	// ラムダ式
-	// [キャプチャリスト](パラメータリスト) mutable 例外仕様 属性 -> 戻り値の型 { 関数の本体 }
-	// [&] はたぶんmain関数内の変数を普通参照して使えるキャプチャ
-	// ラムダ式で再帰関数を定義する場合は引数に自分自身をいれる。今回の場合auto fが該当
-	auto f = [&](auto f, int v, vector<bool> visited, int dist) -> void {
-		visited[v] = true;
+int rec(int v,int dist, vector<vector<Edge>> g, vector<bool>& visited) {
+	//if (visited[v]) {
+	//	// 訪問済みの場合
+	//	return dist;
+	//}
+	//visited[v] = true;
+	//if (g[v].size() == 1) {
+	//	// 行先がない場合
+	//	return dist;
+	//}
+	cout << "再帰関数の実行" << endl;
+	visited[v] = true;
+	int cost = 0;
+	for (auto e : g[v]) {
+		if (visited[e.to])continue;
+		rec(e.to,dist + e.cost, g, visited);
 		ans = max(ans, dist);
-		for (auto e : g[v]) {
-			if (visited[e.to]) continue;
-			f(f, e.to, visited, dist + e.cost);
-		}
-		};
+	}
 
-	rep(i, n) {
-		// 全ての頂点を試す
-		f(f, i, vector<bool>(n), 0);
-	};
 
 	return ans;
+
 }
 
 signed main() {
 
 	int n, m;
 	cin >> n >> m;
+
 	vector<vector<Edge>> g(n);
 
-	rep(i, m) {
+	rep(i, n) {
 		int a, b, c;
 		cin >> a >> b >> c;
 		--a; --b;
 		g[a].emplace_back(b, c);
 		g[b].emplace_back(a, c);
+
 	}
 
+	vector<bool> visited(n);
+
 	int ans = 0;
-
-	ans = solve(g, n);
-
+	for (int i = 0; i < n; i++) {
+		ans = max(ans, rec(i, ans, 0, g, visited));
+	}
 	cout << ans << endl;
-
 	return 0;
 
 }

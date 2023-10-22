@@ -60,12 +60,10 @@ signed main() {
 					}
 
 				}
-
+				ans++;
 
 				};
-
 			if (!t[i][j] && s[i][j] == '#') {
-				ans++;
 				f(f, i, j);
 
 			}
