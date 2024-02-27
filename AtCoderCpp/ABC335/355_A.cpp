@@ -1,4 +1,4 @@
-ï»¿#include <iostream>
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <map>
@@ -27,29 +27,23 @@ using P = pair<int, int>;
 using ll = long long;
 using ull = unsigned long long;
 
-//int dx[] = { -1,0,1, 0,-1,1,1,-1,0 }; // â†‘ â†’ â†“ â† å³ä¸Š å³ä¸‹ å·¦ä¸‹ å·¦ä¸Š  ä¸­å¿ƒ
-//int dy[] = { 0 ,1,0,-1, 1,1,-1,-1,0 };
+int dx[] = { -1,0,1, 0,-1,1,1,-1,0 }; // ª ¨ « © ‰Eã ‰E‰º ¶‰º ¶ã  ’†S
+int dy[] = { 0 ,1,0,-1, 1,1,-1,-1,0 };
 
-int dx[] = {0, 1, 0, -1};
-int dy[] = {1, 0, -1, 0};
+//int dx[] = { 1,0, -1, 0,-1,1,1,-1,0 }; // « ¨ ª ©
+//int dy[] = { 0,1, 0 ,-1, 1,1,-1,-1,0 };
 
-/*
- * @file abc336b
- * 
-*/
 
 signed main() {
 	IOS;
-		
-	int n;
-	cin >> n;
 
-	int cnt{ 0 };
-	while (n % 2 == 0) {
-		cnt++;
-		n /= 2;
-	}
-	cout << cnt << endl;
+	string s;
+	cin >> s;
+	s.back() = '4'; // back()‚ÅÅŒã”ö‚Ì•¶šæ“¾‚Å‚«‚é
+	cout << s << nl;
+
+
+
 	return 0;
 
 }

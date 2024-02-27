@@ -10,8 +10,12 @@ namespace sample {
     int di[] = { -1,0,1,0,-1,1,1,-1,0 }; // ª ¨ « © ‰Eã ‰E‰º ¶‰º ¶ã  ’†S
     int dj[] = { 0,1,0,-1,1,1,-1,-1,0 };
 }
-int main_sample() {
+int sample_a() {
 
-    cout << sizeof(sample::di) << endl;
+    string s = "abc";
+    string s2 = "efg";
+    string s3 = s + s2;
+    cout << s3 << endl;
+
     return 0;
 }

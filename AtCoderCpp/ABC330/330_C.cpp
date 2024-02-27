@@ -1,4 +1,4 @@
-ï»¿#include <iostream>
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <map>
@@ -9,47 +9,40 @@
 #include <unordered_set>
 #include <compare>
 #include <bitset>
-#include <queue>
-#include <numeric>
 //#include <format>
-#include <stack>
-#include <regex>
-//#include <print>
-#include<stacktrace>
 #define rep(i, n) for(int i=0; i<(n); i++)
 #define ALL(v) v.begin(), v.end()
 #define rALL(v) v.rbegin(), v.rend()
 #define IOS ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 const char nl = '\n';
-const int INF = 102345678;
 using namespace std;
 using P = pair<int, int>;
 using ll = long long;
 using ull = unsigned long long;
 
-//int dx[] = { -1,0,1, 0,-1,1,1,-1,0 }; // â†‘ â†’ â†“ â† å³ä¸Š å³ä¸‹ å·¦ä¸‹ å·¦ä¸Š  ä¸­å¿ƒ
-//int dy[] = { 0 ,1,0,-1, 1,1,-1,-1,0 };
-
-int dx[] = {0, 1, 0, -1};
-int dy[] = {1, 0, -1, 0};
-
-/*
- * @file abc336b
- * 
-*/
+int di[] = { -1,0,1,0,-1,1,1,-1,0 }; // ª ¨ « © ‰Eã ‰E‰º ¶‰º ¶ã  ’†S
+int dj[] = { 0,1,0,-1,1,1,-1,-1,0 };
 
 signed main() {
-	IOS;
-		
-	int n;
-	cin >> n;
 
-	int cnt{ 0 };
-	while (n % 2 == 0) {
-		cnt++;
-		n /= 2;
+	IOS;
+
+	ll D;
+	cin >> D;
+	ll ans = D;
+	ll y = 2e6 + 1;
+
+	for (ll x = 0; x <= 2e6 + 1; x++) {
+
+		while (y >= 0 && (x * x + y * y > D)) {
+			y--;
+		}
+
+		ans = min(ans, abs(x * x + y * y - D));
+		ans = min(ans, abs(x * x + (y + 1) * (y + 1) - D));
 	}
-	cout << cnt << endl;
+	cout << ans << nl;
 	return 0;
 
 }
+

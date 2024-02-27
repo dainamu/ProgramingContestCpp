@@ -1,4 +1,4 @@
-ï»¿#include <iostream>
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <map>
@@ -14,8 +14,6 @@
 //#include <format>
 #include <stack>
 #include <regex>
-//#include <print>
-#include<stacktrace>
 #define rep(i, n) for(int i=0; i<(n); i++)
 #define ALL(v) v.begin(), v.end()
 #define rALL(v) v.rbegin(), v.rend()
@@ -27,29 +25,26 @@ using P = pair<int, int>;
 using ll = long long;
 using ull = unsigned long long;
 
-//int dx[] = { -1,0,1, 0,-1,1,1,-1,0 }; // â†‘ â†’ â†“ â† å³ä¸Š å³ä¸‹ å·¦ä¸‹ å·¦ä¸Š  ä¸­å¿ƒ
-//int dy[] = { 0 ,1,0,-1, 1,1,-1,-1,0 };
+int dx[] = { -1,0,1, 0,-1,1,1,-1,0 }; // ª ¨ « © ‰Eã ‰E‰º ¶‰º ¶ã  ’†S
+int dy[] = { 0 ,1,0,-1, 1,1,-1,-1,0 };
 
-int dx[] = {0, 1, 0, -1};
-int dy[] = {1, 0, -1, 0};
-
-/*
- * @file abc336b
- * 
-*/
+//int dx[] = { 1,0, -1, 0,-1,1,1,-1,0 }; // « ¨ ª ©
+//int dy[] = { 0,1, 0 ,-1, 1,1,-1,-1,0 };
 
 signed main() {
 	IOS;
-		
-	int n;
-	cin >> n;
 
-	int cnt{ 0 };
-	while (n % 2 == 0) {
-		cnt++;
-		n /= 2;
+	string s;
+	cin >> s;
+	string temp = s;
+	int ans = s.size();
+	int pos = 0;
+	while ((pos = temp.find("00")) != -1) {
+		ans--;
+		temp = temp.substr(pos + 2);
 	}
-	cout << cnt << endl;
+	cout << ans << nl;
 	return 0;
-
 }
+
+
