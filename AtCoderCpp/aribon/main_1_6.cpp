@@ -1,4 +1,4 @@
-ï»¿#include <iostream>
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <map>
@@ -16,32 +16,44 @@
 #include <regex>
 //#include <print>
 #include<stacktrace>
-#include "..\aribon\ants.cpp"
-#include <fstream>
-
 #define rep(i, n) for(int i=0; i<(n); i++)
 #define ALL(v) v.begin(), v.end()
 #define rALL(v) v.rbegin(), v.rend()
 #define IOS ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
-const char nl = '\n';
-const int INF = 102345678;
-using namespace std;
-using P = pair<int, int>;
-using ll = long long;
-using ull = unsigned long long;
-
-int dx[] = {0, 1, 0, -1};
-int dy[] = {1, 0, -1, 0};
 
 /*
- * @file
- * 
+ * @file ‹a–{ 1-6
+ *
 */
-
-int main() {
+using namespace std;
+signed main_() {
 	IOS;
-	ants();
+
+	int n;
+	cin >> n;
+	vector<int> a(n);
+
+	rep(i, n)cin >> a[i];
+
+	int mx = 0;
+	for (int i = 0; i < n; i++) {
+		for (int j = i + 1; j < n; j++) {
+			for (int k = j + 1; k < n; k++) {
+				int total = a[i] + a[j] + a[k]; // Žü’·
+				int max_t = max(a[i], max(a[j], a[k])); // Å‚à’·‚¢–_‚Ì’·‚³
+				int rest = total - max_t;
+				if (rest > max_t) {
+
+					mx = max(mx, a[i] + a[j] + a[k]);
+				}
+
+
+
+			}
+		}
+	}
+	cout << mx << endl;
 
 	return 0;
 
