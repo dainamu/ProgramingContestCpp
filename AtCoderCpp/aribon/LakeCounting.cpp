@@ -1,4 +1,4 @@
-ï»¿#include <iostream>
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <map>
@@ -31,16 +31,15 @@ using ll = long long;
 using ull = unsigned long long;
 
 
+/*
+ * @file
+ *
+*/
 int dx[] = { 0,1,1,1,0,-1,-1,-1 };
 int dy[] = { -1,-1,0,1,1,1,0,-1 };
 
 ifstream ifs;
-/*
-*ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰å…¥åŠ›å—ã‘å–ã‚‹å ´åˆcinã®ã‹ã‚ã‚Šã«ifsã‚’ã¤ã‹ã†
-* 
-* ifs >> str;
-* 
-*/
+
 void fin_open() {
 
 	string fileName;
@@ -48,35 +47,52 @@ void fin_open() {
 	fileName = fileName + ".txt";
 
 	ifs.open(fileName, ios::in);
-	
+
 	if (!ifs) {
-		cerr << "ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­è¾¼ã‚ã¾ã›ã‚“ã§ã—ãŸã€‚" << endl;
-		return ;
+		cerr << "ƒtƒ@ƒCƒ‹‚ğ“Ç‚ß‚Ü‚¹‚ñ‚Å‚µ‚½B" << endl;
+		return;
 	}
 }
-/*
- * @file
- * ABC344 Aã®è§£èª¬ã‚³ãƒ¼ãƒ‰
- * 
-*/
 
 int main() {
 	IOS;
-	string s;
-	string ans;
-	cin >> s;
-	int cnt = 0;
-	// æ£’ã®å‡ºç¾ã—ãŸæ•°ã‚’æ•°ãˆã¦ãŠã„ã¦1æœ¬ã®å ´åˆå‡ºåŠ›ã—ãªã„
-	for (char c : s) {
-		if (c == '|') {
-			cnt++;
+
+	fin_open();
+
+	int n, m;
+	ifs >> n >> m;
+
+	vector<string> mp(n);
+
+	for (int i = 0; i < n; i++) {
+		ifs >> mp[i];
+	}
+
+	auto f = [&](auto f, int wi, int wj) {
+
+		// ‚à‚µŒ»İ‚Ìƒ}ƒX‚ª…‚½‚Ü‚è‚Ìê‡ "."‚É•ÏŠ·‚·‚é
+		if (mp[wi][wj] == 'w') {
+			mp[wi][wj] = '.';
 		}
 		else {
-			if (cnt != 1) {
-				ans += c;
-			}
+			// ‚»‚¤‚Å‚È‚¯‚ê‚Î‚È‚É‚à‚µ‚È‚¢
+			return;
+		}
+		for (int di = 0; di < 8; di++) {
+			// ”ÍˆÍŠO‚ÍƒŠƒ^[ƒ“
+			if (wi + dx[di] < 0 || wi + dx[di] >= n || wj + dy[di] < 0 || wj + dy[di] >= m) return;
+			// ”ª•ûŒü‚Édfs‚ğŒÄ‚Ño‚·
+			f(f, wi + dx[di], wj + dy[di]);
+
+		}
+
+		};
+
+	int cnt = 0;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			if (mp[i][j] == 'w') { f(f, i, j); cnt++; }
 		}
 	}
-	
-	cout << ans << endl;
+	cout << cnt << endl;
 }

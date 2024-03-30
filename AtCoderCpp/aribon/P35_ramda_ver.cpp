@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <map>
@@ -31,16 +31,15 @@ using ll = long long;
 using ull = unsigned long long;
 
 
-int dx[] = { 0,1,1,1,0,-1,-1,-1 };
-int dy[] = { -1,-1,0,1,1,1,0,-1 };
+/*
+ * @file
+ *
+*/
+int dx[] = { 0, 1, 0, -1 };
+int dy[] = { 1, 0, -1, 0 };
 
 ifstream ifs;
-/*
-*ファイルから入力受け取る場合cinのかわりにifsをつかう
-* 
-* ifs >> str;
-* 
-*/
+
 void fin_open() {
 
 	string fileName;
@@ -48,35 +47,38 @@ void fin_open() {
 	fileName = fileName + ".txt";
 
 	ifs.open(fileName, ios::in);
-	
+
 	if (!ifs) {
-		cerr << "ファイルを読込めませんでした。" << endl;
-		return ;
+		cerr << "�t�@�C����Ǎ��߂܂���ł����B" << endl;
+		return;
 	}
 }
-/*
- * @file
- * ABC344 Aの解説コード
- * 
-*/
 
 int main() {
 	IOS;
-	string s;
-	string ans;
-	cin >> s;
-	int cnt = 0;
-	// 棒の出現した数を数えておいて1本の場合出力しない
-	for (char c : s) {
-		if (c == '|') {
-			cnt++;
-		}
-		else {
-			if (cnt != 1) {
-				ans += c;
-			}
-		}
+
+	fin_open();
+
+	int n, k;
+	ifs >> n;
+	vector<int> x(n);
+
+	for (int i = 0; i < n; i++) {
+		ifs >> x[i];
 	}
-	
-	cout << ans << endl;
+
+	ifs >> k;
+
+	auto f = [&](auto f, int i, int sum) {
+		if (i == n)return k == sum;
+
+		if (f(f, i + 1, sum))return true;
+		if (f(f, i + 1, sum + x[i]))return true;
+		return false;
+		};
+
+	if (f(f, 0, 0))cout << "Yes" << endl;
+	else cout << "No" << endl;
+
+	return 0;
 }

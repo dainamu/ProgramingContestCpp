@@ -1,4 +1,4 @@
-ï»¿#include <iostream>
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <map>
@@ -36,10 +36,10 @@ int dy[] = { -1,-1,0,1,1,1,0,-1 };
 
 ifstream ifs;
 /*
-*ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰å…¥åŠ›å—ã‘å–ã‚‹å ´åˆcinã®ã‹ã‚ã‚Šã«ifsã‚’ã¤ã‹ã†
-* 
+*ƒtƒ@ƒCƒ‹‚©‚ç“ü—Íó‚¯æ‚éê‡cin‚Ì‚©‚í‚è‚Éifs‚ğ‚Â‚©‚¤
+*
 * ifs >> str;
-* 
+*
 */
 void fin_open() {
 
@@ -48,35 +48,37 @@ void fin_open() {
 	fileName = fileName + ".txt";
 
 	ifs.open(fileName, ios::in);
-	
+
 	if (!ifs) {
-		cerr << "ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­è¾¼ã‚ã¾ã›ã‚“ã§ã—ãŸã€‚" << endl;
-		return ;
+		cerr << "ƒtƒ@ƒCƒ‹‚ğ“Ç‚ß‚Ü‚¹‚ñ‚Å‚µ‚½B" << endl;
+		return;
 	}
 }
 /*
  * @file
- * ABC344 Aã®è§£èª¬ã‚³ãƒ¼ãƒ‰
- * 
+ * ABC344 A‚Ì•Ê‰ğ
+ * algo_gym‚³‚ñ‚Ì‰ñ“š
 */
 
 int main() {
 	IOS;
 	string s;
-	string ans;
 	cin >> s;
-	int cnt = 0;
-	// æ£’ã®å‡ºç¾ã—ãŸæ•°ã‚’æ•°ãˆã¦ãŠã„ã¦1æœ¬ã®å ´åˆå‡ºåŠ›ã—ãªã„
-	for (char c : s) {
+	bool bet = false;
+	// •¶š—ñ‚ğŠg’£for•¶‚Åˆê•¶š‚¸‚Âˆ—
+	for (const char& c : s) {
 		if (c == '|') {
-			cnt++;
+			bet = not bet;
 		}
 		else {
-			if (cnt != 1) {
-				ans += c;
+			if (bet) {
+				continue;
+			}
+			else {
+				cout << c;
 			}
 		}
 	}
-	
-	cout << ans << endl;
+
+
 }

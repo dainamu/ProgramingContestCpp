@@ -1,4 +1,4 @@
-ï»¿#include <iostream>
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <map>
@@ -31,16 +31,15 @@ using ll = long long;
 using ull = unsigned long long;
 
 
-int dx[] = { 0,1,1,1,0,-1,-1,-1 };
-int dy[] = { -1,-1,0,1,1,1,0,-1 };
+/*
+ * @file
+ *
+*/
+int dx[] = { 0, 1, 0, -1 };
+int dy[] = { 1, 0, -1, 0 };
 
 ifstream ifs;
-/*
-*ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰å…¥åŠ›å—ã‘å–ã‚‹å ´åˆcinã®ã‹ã‚ã‚Šã«ifsã‚’ã¤ã‹ã†
-* 
-* ifs >> str;
-* 
-*/
+
 void fin_open() {
 
 	string fileName;
@@ -48,35 +47,46 @@ void fin_open() {
 	fileName = fileName + ".txt";
 
 	ifs.open(fileName, ios::in);
-	
+
 	if (!ifs) {
-		cerr << "ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­è¾¼ã‚ã¾ã›ã‚“ã§ã—ãŸã€‚" << endl;
-		return ;
+		cerr << "ƒtƒ@ƒCƒ‹‚ğ“Ç‚ß‚Ü‚¹‚ñ‚Å‚µ‚½B" << endl;
+		return;
 	}
 }
-/*
- * @file
- * ABC344 Aã®è§£èª¬ã‚³ãƒ¼ãƒ‰
- * 
-*/
 
+
+int n, k;
+vector<int> x;
+
+bool dfs(int i, int sum) {
+	// i ‚ğn‚Ü‚Å‚½‚ß‚µ‚½‚Æ‚« sum‚ªk‚Æˆê’v‚µ‚Ä‚¢‚é‚©•Ô‚·
+	if (i == n)return sum == k;
+
+	// i”Ô–Ú‚ğg‚í‚È‚¢ƒpƒ^[ƒ“
+	if (dfs(i + 1, sum))return true;
+	// i”Ô–Ú‚ğg‚¤ƒpƒ^[ƒ“
+	if (dfs(i + 1, sum + x[i])) return true;
+
+	return false;
+}
 int main() {
 	IOS;
-	string s;
-	string ans;
-	cin >> s;
-	int cnt = 0;
-	// æ£’ã®å‡ºç¾ã—ãŸæ•°ã‚’æ•°ãˆã¦ãŠã„ã¦1æœ¬ã®å ´åˆå‡ºåŠ›ã—ãªã„
-	for (char c : s) {
-		if (c == '|') {
-			cnt++;
-		}
-		else {
-			if (cnt != 1) {
-				ans += c;
-			}
-		}
+
+	fin_open();
+
+
+	ifs >> n;
+	x = vector<int>(n);
+	for (int i = 0; i < n; i++) {
+		ifs >> x[i];
 	}
-	
-	cout << ans << endl;
+	ifs >> k;
+
+	// dfs‚ğˆê”ÔÅ‰‚Ìó‘Ô‚ÅŒÄ‚Ño‚·B
+	if (dfs(0, 0)) cout << "Yes" << endl;
+	else cout << "No" << endl;
+
+
+
+	return 0;
 }

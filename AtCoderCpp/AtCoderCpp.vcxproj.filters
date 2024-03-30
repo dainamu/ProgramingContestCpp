@@ -30,7 +30,9 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="test.txt" />
-    <Text Include="input.txt" />
+    <Text Include="a.txt" />
+    <Text Include="p35.txt" />
+    <Text Include="b.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="aribon\ants.h">
