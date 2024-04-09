@@ -21,18 +21,18 @@
     <ClCompile Include="main\main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="aribon\ants.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="aribon\main_1_6.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="test.txt" />
     <Text Include="a.txt" />
     <Text Include="p35.txt" />
     <Text Include="b.txt" />
+    <Text Include="c.txt" />
+    <Text Include="d.txt" />
+    <Text Include="coin.txt" />
+    <Text Include="kukan.txt" />
+    <Text Include="jisyojyunsaisyou.txt" />
+    <Text Include="sonota.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="aribon\ants.h">

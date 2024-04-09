@@ -41,7 +41,7 @@ ifstream ifs;
 * ifs >> str;
 * 
 */
-void fin_open() {
+int fin_open() {
 
 	string fileName;
 	cin >> fileName;
@@ -51,32 +51,73 @@ void fin_open() {
 	
 	if (!ifs) {
 		cerr << "ファイルを読込めませんでした。" << endl;
-		return ;
+		return 1;
 	}
+	return 0;
 }
 /*
- * @file
- * ABC344 Aの解説コード
+ * @file 
+ * P47 その他の問題
  * 
 */
-
+/*
+コメントアウト Ctrl + K → C
+コメント外す   Ctrl + K → U
+*/
 int main() {
 	IOS;
-	string s;
-	string ans;
-	cin >> s;
-	int cnt = 0;
-	// 棒の出現した数を数えておいて1本の場合出力しない
-	for (char c : s) {
-		if (c == '|') {
-			cnt++;
-		}
-		else {
-			if (cnt != 1) {
-				ans += c;
+	
+	fin_open();
+
+	// 入力
+	int n, r;
+	ifs >> n >> r;
+	vector<int> x(n);
+	for (int i = 0; i < n; i++) {
+		ifs >> x[i];
+	}
+
+	int cnt = 0; // 答え用
+	int len = 0; // x+r
+	vector<bool> chk(n); // 印付けたかつけないか
+
+	for (int i = 0; i < n; i++) {
+
+		len = x[i] + r; // R以内の距離
+		int temp = i;
+		for (int j = i; j < n; j++) {
+			if (x[j] <= len) { //R以内の距離の場合
+				temp = j;
+			}
+			else {
+				break;
 			}
 		}
+
+		// もしtempがiのままならiに印をつける
+		if (temp == i) {
+			chk[i] = true;
+		}
+		else {
+			// そうでなければtempにチェックをいれる
+			chk[temp] = true;
+			// r範囲まですすめる
+			len = x[temp] + r;
+			for (int j = temp; j < n; j++) {
+				if (x[j] <= len) {
+					temp = j;
+				}
+				else {
+					break;
+				}
+			}
+		}
+		// iをtempで更新する
+		i = temp;
+
 	}
-	
-	cout << ans << endl;
+
+	cnt = count(chk.begin(), chk.end(), true);
+	cout << cnt << endl;
+
 }

@@ -22,14 +22,18 @@
     <None Include="memo.md" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="aribon\ants.cpp" />
-    <ClCompile Include="aribon\main_1_6.cpp" />
     <ClCompile Include="main\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="a.txt" />
     <Text Include="b.txt" />
+    <Text Include="c.txt" />
+    <Text Include="coin.txt" />
+    <Text Include="d.txt" />
+    <Text Include="jisyojyunsaisyou.txt" />
+    <Text Include="kukan.txt" />
     <Text Include="p35.txt" />
+    <Text Include="sonota.txt" />
     <Text Include="test.txt" />
   </ItemGroup>
   <ItemGroup>
