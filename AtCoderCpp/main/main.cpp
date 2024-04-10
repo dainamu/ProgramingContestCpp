@@ -11,12 +11,12 @@
 #include <bitset>
 #include <queue>
 #include <numeric>
-//#include <format>
 #include <stack>
 #include <regex>
-//#include <print>
 #include<stacktrace>
 #include <fstream>
+//#include <print>
+//#include <format>
 
 #define rep(i, n) for(int i=0; i<(n); i++)
 #define ALL(v) v.begin(), v.end()
@@ -30,9 +30,6 @@ using P = pair<int, int>;
 using ll = long long;
 using ull = unsigned long long;
 
-
-int dx[] = { 0,1,1,1,0,-1,-1,-1 };
-int dy[] = { -1,-1,0,1,1,1,0,-1 };
 
 ifstream ifs;
 /*
@@ -57,67 +54,101 @@ int fin_open() {
 }
 /*
  * @file 
- * P47 その他の問題
+ * ABC 348 D
+ * 
+ * 
  * 
 */
 /*
 コメントアウト Ctrl + K → C
 コメント外す   Ctrl + K → U
 */
+
 int main() {
 	IOS;
+
+	//fin_open();
 	
-	fin_open();
-
 	// 入力
-	int n, r;
-	ifs >> n >> r;
-	vector<int> x(n);
-	for (int i = 0; i < n; i++) {
-		ifs >> x[i];
-	}
+	int h, w, n;
+	cin >> h >> w;
 
-	int cnt = 0; // 答え用
-	int len = 0; // x+r
-	vector<bool> chk(n); // 印付けたかつけないか
+	vector<string> grid(h); // グリッド図
+	vector<vector<int>> energy(h, vector<int>(w)); // エネルギーの位置と量を記録するよう
 
-	for (int i = 0; i < n; i++) {
+	// スタート地点、ゴール地点
+	int sx, sy, gx, gy;
 
-		len = x[i] + r; // R以内の距離
-		int temp = i;
-		for (int j = i; j < n; j++) {
-			if (x[j] <= len) { //R以内の距離の場合
-				temp = j;
-			}
-			else {
-				break;
-			}
+	// グリッド
+	for (int i = 0; i < h; i++) {
+		cin >> grid[i];
+		if (grid[i].find("S") != string::npos) {
+			sx = i;
+			sy = grid[i].find("S");
+		}
+		if (grid[i].find("T") != string::npos) {
+			gx = i;
+			gy = grid[i].find("T");
 		}
 
-		// もしtempがiのままならiに印をつける
-		if (temp == i) {
-			chk[i] = true;
+	}
+	cin >> n;
+	// エネルギーの位置と量
+	for (int i = 0; i < n; i++) {
+		int r, c, e;
+		cin >> r >> c >> e;
+		r--;
+		c--;
+		energy[r][c] = e;
+	}
+
+	// 行ったか、行ってないか
+	vector<vector<bool>> visited(h, vector<bool>(w));
+
+	int dx[] = { -1, 0, 1, 0 };
+	int dy[] = { 0,1,0,-1 };
+	auto dfs = [&](auto dfs, int x, int y, int en, vector<vector<bool>> visited)->bool	{
+		
+		// ゴールならtrueリターン
+		if (x == gx && y == gy) {
+			return true;
+		}
+
+		// 訪問ずみならリターン
+		if (visited[x][y]) {
+			return false;
 		}
 		else {
-			// そうでなければtempにチェックをいれる
-			chk[temp] = true;
-			// r範囲まですすめる
-			len = x[temp] + r;
-			for (int j = temp; j < n; j++) {
-				if (x[j] <= len) {
-					temp = j;
-				}
-				else {
-					break;
-				}
-			}
+			// 訪問済みにsるう
+			visited[x][y] = true;
 		}
-		// iをtempで更新する
-		i = temp;
+		// もしエネルギー0で現在値にエネルギーがなかったらfalse
+		if (en == 0 && energy[x][y] == 0) {
+			return false;
+		}
 
-	}
+		if (en < energy[x][y]) {
+			// 現在のエネルギーより落ちてるエネルギーの方が大きければ使う。
+			en = energy[x][y];
+		}
+		// 4方向
+		for (int i = 0; i < 4; i++) {
+				int nx = x + dx[i];
+				int ny = y + dy[i];
+				if (nx >= 0 && nx < h && ny >= 0 && ny < w && grid[nx][ny] != '#') {
+					if (dfs(dfs, nx, ny, en,visited)) {
+						return true;
+					}
+				}
+		}
 
-	cnt = count(chk.begin(), chk.end(), true);
-	cout << cnt << endl;
+		// 最後まできてダメだったらリターンfalse
+		return false;
 
-}
+
+		};
+
+	bool ans = dfs(dfs, sx, sy, 0, visited);
+	if (ans)cout << "Yes" << endl;
+	else cout << "No" << endl;
+} 
