@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+AtCoderCpp/main/main
+AtCoderCpp/main/main.dSYM/Contents/Info.plist
+AtCoderCpp/main/main.dSYM/Contents/Resources/DWARF/main
+AtCoderCpp/main/main.dSYM/Contents/Resources/Relocations/aarch64/main.yml

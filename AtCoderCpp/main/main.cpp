@@ -67,88 +67,21 @@ int fin_open() {
 int main() {
 	IOS;
 
-	//fin_open();
+	string s;
+	cin >> s;
+	bool b = true;
+	if(s[0] == '<' && s[s.length()-1] == '>' ){
+		for(int i=1; i<s.length()-1; i++){
+			if(s[i] != '='){
+				b = false;
+			}
+		}
+	}else{
+		b = false;
+	}
+	string ans = b ? "Yes":"No";
+	cout << ans << endl;
 	
 	// 入力
-	int h, w, n;
-	cin >> h >> w;
-
-	vector<string> grid(h); // グリッド図
-	vector<vector<int>> energy(h, vector<int>(w)); // エネルギーの位置と量を記録するよう
-
-	// スタート地点、ゴール地点
-	int sx, sy, gx, gy;
-
-	// グリッド
-	for (int i = 0; i < h; i++) {
-		cin >> grid[i];
-		if (grid[i].find("S") != string::npos) {
-			sx = i;
-			sy = grid[i].find("S");
-		}
-		if (grid[i].find("T") != string::npos) {
-			gx = i;
-			gy = grid[i].find("T");
-		}
-
-	}
-	cin >> n;
-	// エネルギーの位置と量
-	for (int i = 0; i < n; i++) {
-		int r, c, e;
-		cin >> r >> c >> e;
-		r--;
-		c--;
-		energy[r][c] = e;
-	}
-
-	// 行ったか、行ってないか
-	vector<vector<bool>> visited(h, vector<bool>(w));
-
-	int dx[] = { -1, 0, 1, 0 };
-	int dy[] = { 0,1,0,-1 };
-	auto dfs = [&](auto dfs, int x, int y, int en, vector<vector<bool>> visited)->bool	{
-		
-		// ゴールならtrueリターン
-		if (x == gx && y == gy) {
-			return true;
-		}
-
-		// 訪問ずみならリターン
-		if (visited[x][y]) {
-			return false;
-		}
-		else {
-			// 訪問済みにsるう
-			visited[x][y] = true;
-		}
-		// もしエネルギー0で現在値にエネルギーがなかったらfalse
-		if (en == 0 && energy[x][y] == 0) {
-			return false;
-		}
-
-		if (en < energy[x][y]) {
-			// 現在のエネルギーより落ちてるエネルギーの方が大きければ使う。
-			en = energy[x][y];
-		}
-		// 4方向
-		for (int i = 0; i < 4; i++) {
-				int nx = x + dx[i];
-				int ny = y + dy[i];
-				if (nx >= 0 && nx < h && ny >= 0 && ny < w && grid[nx][ny] != '#') {
-					if (dfs(dfs, nx, ny, en,visited)) {
-						return true;
-					}
-				}
-		}
-
-		// 最後まできてダメだったらリターンfalse
-		return false;
-
-
-		};
-
-	bool ans = dfs(dfs, sx, sy, 0, visited);
-	if (ans)cout << "Yes" << endl;
-	else cout << "No" << endl;
+	
 } 
